@@ -46,7 +46,7 @@ requires = [
     'idna>=2.5,<3',
     'urllib3>=1.21.1,<1.26,!=1.25.0,!=1.25.1',
     'certifi>=2017.4.17',
-    'float_json',
+    'float_json @ git+https://github.com/waves-trading/float_json.git@0.0.1#egg=float_json',
 ]
 
 dependencies_links = [
@@ -115,5 +115,5 @@ setup(
         'Documentation': 'https://requests.readthedocs.io',
         'Source': 'https://github.com/psf/requests',
     },
-    dependencies_links=dependencies_links
+    # dependencies_links=dependencies_links
 )
