@@ -1,15 +1,14 @@
 #!/usr/bin/env python
 # Learn more: https://github.com/kennethreitz/setup.py
 import os
-import re
 import sys
-
 from codecs import open
 
 from setuptools import setup
 from setuptools.command.test import test as TestCommand
 
 here = os.path.abspath(os.path.dirname(__file__))
+
 
 class PyTest(TestCommand):
     user_options = [('pytest-args=', 'a', "Arguments to pass into py.test")]
@@ -33,6 +32,7 @@ class PyTest(TestCommand):
         errno = pytest.main(self.pytest_args)
         sys.exit(errno)
 
+
 # 'setup.py publish' shortcut.
 if sys.argv[-1] == 'publish':
     os.system('python setup.py sdist bdist_wheel')
@@ -45,16 +45,21 @@ requires = [
     'chardet>=3.0.2,<4',
     'idna>=2.5,<3',
     'urllib3>=1.21.1,<1.26,!=1.25.0,!=1.25.1',
-    'certifi>=2017.4.17'
-
+    'certifi>=2017.4.17',
+    'float_json',
 ]
+
+dependencies_links = [
+    'git+https://github.com/waves-trading/float_json.git@0.0.1#egg=float_json'
+]
+
 test_requirements = [
     'pytest-httpbin==0.0.7',
     'pytest-cov',
     'pytest-mock',
     'pytest-xdist',
     'PySocks>=1.5.6, !=1.5.7',
-    'pytest>=3'
+    'pytest>=3',
 ]
 
 about = {}
@@ -110,4 +115,5 @@ setup(
         'Documentation': 'https://requests.readthedocs.io',
         'Source': 'https://github.com/psf/requests',
     },
+    dependencies_links=dependencies_links
 )

@@ -16,6 +16,7 @@ requests.egg-info/
 env/
 .idea/
 .venv/
+venv/
 .eggs/
 .tox/
 .pytest_cache/
